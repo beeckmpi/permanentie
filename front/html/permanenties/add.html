@@ -1,0 +1,581 @@
+<div class=row ng-controller="permanentieAddCtrlr" >
+	<div class="col-md-3">
+ 		<div style="font-size:larger; font-weight:bold">Interventiefiche</div>	
+  	<dl class="tabs vertical hide-for-small" data-tab data-options="deep_linking: true">
+			<dd ng-class="{active: panels.panel1a}" ng-click="tabs('panel1a')">Details Interventiefiche</dd>
+			<dd ng-click="tabs('panel2a')" ng-class="{active: panels.panel2a}">Type oproep</dd>
+		 	<dd ng-click="tabs('panel3a')" ng-class="{active: panels.panel3a}">Interventieplaats</dd>
+		 	<dd ng-click="tabs('panel4a')" ng-class="{active: panels.panel4a}">Vaststelling</dd>
+		  <dd ng-click="tabs('panel5a')" ng-class="{active: panels.panel5a}">Beslissing oproep bijstand</dd>
+			<dd ng-click="tabs('panel6a')" ng-class="{active: panels.panel6a}">Tijdstippen + Middelen uitvoering</dd>
+			<dd ng-click="tabs('panel7a')" ng-class="{active: panels.panel7a}">Bijkomende details vaststellingen</dd>
+			<dd ng-click="tabs('panel8a')" ng-class="{active: panels.panel8a}">Bijlages</dd>
+			<dd ng-click="tabs('panel9a')" ng-class="{active: panels.panel9a}">Afmelding</dd>
+		</dl>
+		<label for="smallNav" class="show-for-small-only">Formulier navigatie</label>
+		<select class="show-for-small-only" id=smallNav ng-model=tabnav>
+			<option value="panel1a">Details Interventiefiche</option>
+			<option value="panel2a">Type oproep</option>
+			<option value="panel3a">Interventieplaats</option>
+			<option value="panel4a">Vaststelling</option>
+			<option value="panel5a">Beslissing oproep bijstand</option>
+			<option value="panel6a">Tijdstippen + Middelen uitvoering</option>
+			<option value="panel7a">Bijkomende details vaststellingen</option>
+			<option value="panel8a">Bijlages</option>
+			<option value="panel9a">Afmelding</option>
+		</select>
+	</div>
+	<div class="tab-content vertical col-md-5">
+		<div id="panel1a" role="tabpanel" ng-show="panels.panel1a">					  	
+	  	<div class="form-group">
+	  		<label for="edit-district">District </label>
+	  		<select id="edit-district" name="district" class="form-control"><option value="" selected="selected">--selecteer--</option><option value="0">Antwerpen d'Herbouvillekaai (121)</option><option value="1">Antwerpen Thonetlaan (121)</option><option value="2">Brecht (123)</option><option value="3">Directie (100)</option><option value="4">Geel (114)</option><option value="5">Puurs (112)</option><option value="6">Vosselaar (125)</option></select>
+	  	</div>
+	  	<div class="form-group">
+	  		<label for="edit-provinciaal-coordinator">Oproep ontvangen door <span class="form-required" title="Dit veld is verplicht.">*</span></label>
+	  		<input placeholder="Provinciaal coördinator" type="text" id="edit-provinciaal-coordinator" name="provinciaal_coordinator" value="" size="40" maxlength="128" class="form-text form-control required form-autocomplete" autocomplete="OFF" aria-autocomplete="list">
+	  		<div class="description" style="font-size: x-small; margin-bottom: 15px; ">Selecteer de provinciaal coordinator die op het ogenblik van de oproep van dienst is.</div>
+	  	</div>
+			<div class="form-group">
+				<label for="edit-fichenummer">Interventie Fiche </label>
+				<input placeholder="Jaar/District/Nummer" type="text" id="edit-fichenummer" name="fichenummer" value="" size="10" maxlength="128" class="form-control">
+			</div>
+			<div class="form-group" role="application">
+				<label for="edit-doorgegeven-aan">Doorgegeven door provinciaal coördinator aan <span class="form-required" title="Dit veld is verplicht.">*</span></label>
+			 	<input placeholder="Doorgegeven Aan" type="text" id="edit-doorgegeven-aan" name="doorgegeven_aan" value="" size="40" maxlength="128" class="form-control required form-autocomplete" autocomplete="OFF" aria-autocomplete="list"><input type="hidden" id="edit-doorgegeven-aan-autocomplete" value="http://10.36.8.84/permanentie/Personeel/autocomplete" disabled="disabled" class="autocomplete autocomplete-processed">
+			</div>		
+			<div class="form-group form-type-textarea form-item-opmerking-bereikbaarheid">
+				<label for="edit-opmerking-bereikbaarheid">Opmerking bereikbaarheid </label>
+			 	<textarea placeholder="Opmerking Bereikbaarheid" id="edit-opmerking-bereikbaarheid" name="opmerking_bereikbaarheid" cols="60" rows="2" class="form-control"></textarea>
+			</div>	
+		</div>
+		<div class="content" id="panel2a" role="tabpanel" class="tab-pane" ng-show="panels.panel2a" >	
+			<div class="row">
+				<div class="col-md-6 form-group">
+					<label for="edit-op-datum">Op (datum)</label>
+				 	<input type=date id=edit-op-datum placeholder="Op (datum)" class="form-control"> 							
+				</div>
+				<div class="col-md-6 form-group">
+					<label for="edit-op-uur">Oproep</label>
+				 	<input type=text id=edit-op-uur placeholder="Uur" class="form-control">							
+				</div>
+				<div class="col-md-6 form-group">
+					<label for="edit-op-uur">Ter plaatse</label>
+				 	<input type=time id=edit-op-uur placeholder="Uur" class="form-control">							
+				</div>
+				<div class="col-md-6 form-group">
+					<label for="edit-op-uur">Einde</label>
+				 	<input type=text id=edit-op-uur placeholder="Uur" class="form-control">							
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="edit-bijkomende-informatie">Bijkomende informatie </label>
+				<div class="form-textarea-wrapper resizable textarea-processed resizable-textarea"><textarea placeholder="Bijkomende informatie" id="edit-bijkomende-informatie" name="bijkomende_informatie" cols="60" rows="2" class="form-control"></textarea><div class="grippie"></div></div>
+			</div>
+			<div class="form-group">
+				<label for="edit-oproep-door">Oproep door </label>
+				<select id="edit-oproep-door" name="oproep_door" class="form-control"><option value="0">--selecteer--</option><option value="1">Leidinggevende van wacht</option><option value="2">Andere</option></select>
+			</div>
+			<div class="form-group" style="display: none;">
+				<label for="edit-oproep-door-andere">Andere </label>
+				<input placeholder="Andere" type="text" id="edit-oproep-door-andere" name="oproep_door_andere" value="" size="40" maxlength="128" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="edit-op-vraag-van">Op vraag van </label>
+				<select id="edit-op-vraag-van" name="op_vraag_van" class="form-control"><option value="0">--selecteer--</option><option value="1">Wachtdienst</option><option value="2">Politie</option><option value="3">Andere</option></select>
+			</div>
+			<div class="form-group">
+				<label for="edit-melding">Melding </label>
+				<select id="edit-melding" name="melding" class="form-control"><option value="0">--selecteer--</option><option value="1">Weginfrastructuur</option><option value="2">Wateroverlast</option><option value="3">Stormschade</option><option value="4">Ongeval</option><option value="5">Ladingverlies</option><option value="6">Bodemverontreining</option><option value="7">Andere</option></select>
+			</div>
+		</div>
+		<div class="content" id="panel3a" role="tabpanel" class="tab-pane" ng-show="panels.panel3a">	
+			<div class="form-group">
+				<label for="edit-weg">Weg </label>
+				<input placeholder="Weg" type="text" id="edit-weg" name="weg" value="" size="32" maxlength="128" class="form-control">
+			</div>
+			<div class="form-group" role="application">
+				<label for="edit-gemeente">Grondgebied (Gemeente of postcode) </label>
+				<input placeholder="Gemeente of Postcode" type="text" id="edit-gemeente" name="gemeente" value="" size="32" maxlength="128" class="form-control" autocomplete="OFF" aria-autocomplete="list"><input type="hidden" id="edit-gemeente-autocomplete" value="http://10.36.8.84/permanentie/gemeente/autocomplete" disabled="disabled" class="autocomplete autocomplete-processed">
+			</div>
+			<div class="form-group">
+				<label for="edit-rijrichting">Rijrichting </label>
+				<input placeholder="Rijrichting" type="text" id="edit-rijrichting" name="rijrichting" value="" size="32" maxlength="128" class="form-control">
+			</div>
+			<div class="row">
+				<div class="col-md-6 form-group">
+					<label for="edit-gewestweg">Gewestweg </label>
+					<input placeholder="Gewestweg" type="text" id="edit-gewestweg" name="gewestweg" value="" size="32" maxlength="128" class="form-control">
+				</div>
+				<div class="col-md-6 form-group">
+					<label for="edit-richting">Richting </label>
+					<select id="edit-richting" name="richting" class="form-control"><option value="0">--selecteer--</option><option value="1">Oplopend</option><option value="2">Aflopend</option></select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 form-group">
+					<label for="edit-kmpunt">Km punt van </label>
+					<input placeholder="Km punt van" type="text" id="edit-kmpunt" name="kmpunt" value="" size="4" maxlength="128" class="form-control">
+				</div>
+				<div class="col-md-6 form-group">
+					<label for="edit-kmpunttot">Km punt tot </label>
+					<input placeholder="km punt tot" type="text" id="edit-kmpunttot" name="kmpunttot" value="" size="4" maxlength="128" class="form-control">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-8 form-group">
+					<label for="edit-straat">Straat </label>
+					<input placeholder="Straat" type="text" id="edit-straat" name="straat" value="" size="32" maxlength="128" class="form-control">
+				</div>
+				<div class="col-md-4 form-group">
+					<label for="edit-huisnummer">Huisnummer </label>
+					<input placeholder="Huisnummer" type="text" id="edit-huisnummer" name="huisnummer" value="" size="4" maxlength="128" class="form-control">
+				</div>
+			</div>
+		</div>
+		<div class="content" id="panel4a" data-options="scroll_to_content: false" ng-show="panels.panel4a">	
+			<div class="form-item form-type-checkboxes form-item-aanwezig">
+				<label for="edit-aanwezig">Aanwezig ter plaatse </label>
+				<div id="edit-aanwezig" class="form-checkboxes" style="margin: 8px">
+				<div class="checkbox">
+					<label for="edit-aanwezig-federale-politie"><input type="checkbox" id="edit-aanwezig-federale-politie" name="aanwezig[Federale Politie]" value="Federale Politie"> Federale Politie </label>						
+				</div>
+				<div class="checkbox">
+					<label for="edit-aanwezig-brandweer"><input type="checkbox" id="edit-aanwezig-brandweer" name="aanwezig[Brandweer]" value="Brandweer"> Brandweer </label>						
+				</div>
+				<div class="checkbox">
+					<label for="edit-aanwezig-fast-takeldienst"><input type="checkbox" id="edit-aanwezig-fast-takeldienst" name="aanwezig[FAST / Takeldienst]" value="FAST / Takeldienst"> FAST / Takeldienst </label>						
+				</div>
+				<div class="checkbox">
+					<label for="edit-aanwezig-civiele-bescherming"><input type="checkbox" id="edit-aanwezig-civiele-bescherming" name="aanwezig[Civiele Bescherming]" value="Civiele Bescherming"> Civiele Bescherming </label>						
+				</div>
+				<div class="checkbox">
+				 	<label class="option" for="edit-aanwezig-andere"><input type="checkbox" id="edit-aanwezig-andere" name="aanwezig[Andere]" value="Andere"> Andere </label>						
+				</div>
+			</div>
+		</div>
+		<div class="form-item form-type-textarea form-item-aanwezig-opmerking">
+			<label for="edit-aanwezig-opmerking">Opmerking </label>
+		 	<div class="form-textarea-wrapper resizable textarea-processed resizable-textarea"><textarea placeholder="Opmerking" id="edit-aanwezig-opmerking" name="aanwezig_opmerking" cols="60" rows="1" class="form-textarea"></textarea><div class="grippie"></div></div>
+		</div>
+		<h4>Incident / Schade</h4>
+			<div class="straat_nr">
+				<div class="checkbox">
+			 		<label class="option" for="edit-weginfrastructuur"><input type="checkbox" id="edit-weginfrastructuur" name="weginfrastructuur" value="1"> Weginfrastructuur </label>
+			 	</div>						
+				<div id="edit-weginfra" class="form-checkboxes row show_next">
+					<div class="col-md-4">
+						<div class="checkbox">
+							<label class="option" for="edit-weginfra-put-in-rijbaan"><input type="checkbox" id="edit-weginfra-put-in-rijbaan" name="weginfra[Put in rijbaan]" value="Put in rijbaan">Put in rijbaan </label>
+						</div>
+						<div class="checkbox">
+							<label class="option" for="edit-weginfra-signalisatie"><input type="checkbox" id="edit-weginfra-signalisatie" name="weginfra[Signalisatie]" value="Signalisatie" class="form-checkbox jquery-once-1-processed">  Signalisatie </label>							
+						</div>
+						<div class="checkbox">
+							<label class="option" for="edit-weginfra-boomstruik"><input type="checkbox" id="edit-weginfra-boomstruik" name="weginfra[Boom/Struik]" value="Boom/Struik" class="form-checkbox jquery-once-1-processed"> Boom/Struik </label>							
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="checkbox">
+							<label class="option" for="edit-weginfra-kunstwerk"><input type="checkbox" id="edit-weginfra-kunstwerk" name="weginfra[Kunstwerk]" value="Kunstwerk" class="form-checkbox jquery-once-1-processed">Kunstwerk </label>							
+						</div>
+						<div class="checkbox">
+							<label class="option" for="edit-weginfra-verzakking"><input type="checkbox" id="edit-weginfra-verzakking" name="weginfra[Verzakking]" value="Verzakking" class="form-checkbox jquery-once-1-processed">Verzakking </label>							
+						</div>
+						<div class="checkbox">
+							<label class="option" for="edit-weginfra-opstuiking"><input type="checkbox" id="edit-weginfra-opstuiking" name="weginfra[Opstuiking]" value="Opstuiking" class="form-checkbox jquery-once-1-processed">Opstuiking </label>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="checkbox">
+							<label class="option" for="edit-weginfra-met-vangrail"><input type="checkbox" id="edit-weginfra-met-vangrail" name="weginfra[Met. vangrail]" value="Met. vangrail" class="form-checkbox jquery-once-1-processed">Met. vangrail </label>
+						</div>
+						<div class="checkbox">
+							<label class="option" for="edit-weginfra-andere"><input type="checkbox" id="edit-weginfra-andere" name="weginfra[Andere]" value="Andere" class="form-checkbox jquery-once-1-processed jquery-once-2-processed">Andere </label>							
+						</div>
+					</div>
+				</div>
+				<div class="form-item form-type-textfield form-item-weginfra-andere" style="display: none;">
+					<input class="andere-text form-text" type="text" id="edit-weginfra-andere--2" name="weginfra_andere" value="" size="32" maxlength="128">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 checkbox">
+ 					<label class="option" for="edit-wateroverlast"><input type="checkbox" id="edit-wateroverlast" name="wateroverlast" value="1" class="form-checkbox jquery-once-1-processed hide_next">Wateroverlast </label>
+				</div>
+				<div class="col-md-8" style="display:inherit">
+ 					<input placeholder="Omschrijving" type="text" id="edit-wateroverlast-omschrijving" name="wateroverlast_omschrijving" value="" size="32" maxlength="128" class="form-control">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 checkbox">
+ 					  <label class="option" for="edit-Stormschade"><input type="checkbox" id="edit-stormschade" name="stormschade" value="1" class="form-checkbox jquery-once-1-processed hide_next">Stormschade </label>
+				</div>
+				<div class="col-md-8" style="display:inherit">
+ 					<input placeholder="Omschrijving" type="text" id="edit-stormschade-omschrijving" name="stormschade_omschrijving" value="" size="32" maxlength="128" class="form-control">
+				</div>
+			</div>
+			<div class="straat_nr">
+				<div class="checkbox">
+			 		<label class="option" for="edit-ongeval"><input type="checkbox" id="edit-ongeval" name="ongeval" value="1" class="hide_next">Ongeval </label>						
+				</div>
+				<div id="edit-ongeval-items" class="show_next row" style="display:inherit; margin-left: 5%">
+					<div class="col-md-4">
+						<div class=checkbox>
+							<label class="option" for="edit-ongeval-items-met-stootb"><input type="checkbox" id="edit-ongeval-items-met-stootb" name="ongeval_items[Met. stootb.]" value="Met. stootb." class="form-checkbox jquery-once-1-processed">Met. stootb. </label>								
+						</div>
+						<div class="checkbox">
+							<label class="option" for="edit-ongeval-items-bet-stootb"><input type="checkbox" id="edit-ongeval-items-bet-stootb" name="ongeval_items[Bet. stootb.]" value="Bet. stootb." class="form-checkbox jquery-once-1-processed">Bet. stootb. </label>								
+						</div>
+						<div class="checkbox">
+							<label class="option" for="edit-ongeval-items-signalisatie"><input type="checkbox" id="edit-ongeval-items-signalisatie" name="ongeval_items[Signalisatie]" value="Signalisatie" class="form-checkbox jquery-once-1-processed">Signalisatie </label>								
+						</div>								
+						<div class="checkbox">
+							<label class="option" for="edit-ongeval-items-elektrische-installatie"><input type="checkbox" id="edit-ongeval-items-elektrische-installatie" name="ongeval_items[Elektrische Installatie]" value="Elektrische Installatie" class="form-checkbox jquery-once-1-processed">Elektrische Installatie </label>								
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="checkbox">
+							<input type="checkbox" id="edit-ongeval-items-boomstruik" name="ongeval_items[Boom/Struik]" value="Boom/Struik" class="form-checkbox jquery-once-1-processed">  <label class="option" for="edit-ongeval-items-boomstruik">Boom/Struik </label>								
+						</div>
+						<div class="checkbox">
+							<input type="checkbox" id="edit-ongeval-items-kunstwerk" name="ongeval_items[Kunstwerk]" value="Kunstwerk" class="form-checkbox jquery-once-1-processed">  <label class="option" for="edit-ongeval-items-kunstwerk">Kunstwerk </label>								
+						</div>
+						<div class="checkbox">
+							<input type="checkbox" id="edit-ongeval-items-bermtalud" name="ongeval_items[Berm/talud]" value="Berm/talud" class="form-checkbox jquery-once-1-processed">  <label class="option" for="edit-ongeval-items-bermtalud">Berm/talut </label>								
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="checkbox">
+							<input type="checkbox" id="edit-ongeval-items-wegdek" name="ongeval_items[Wegdek]" value="Wegdek" class="form-checkbox jquery-once-1-processed">  <label class="option" for="edit-ongeval-items-wegdek">Wegdek </label>								
+						</div>
+						<div class="checkbox">
+							<input type="checkbox" id="edit-ongeval-items-bijstand-brand" name="ongeval_items[Bijstand brand]" value="Bijstand brand" class="form-checkbox jquery-once-1-processed">  
+							<label class="option" for="edit-ongeval-items-bijstand-brand">Bijstand brand </label>								
+						</div>
+						<div class="checkbox">
+							<input type="checkbox" id="edit-ongeval-items-andere" name="ongeval_items[Andere]" value="Andere" class="form-checkbox hide_next">  
+							<label class="option" for="edit-ongeval-items-andere">Andere </label>
+						</div>
+					</div>
+					<div class="form-item form-type-textfield form-item-ongeval-items-andere show_next" style="display: none;">
+						<input class="andere-text form-text" type="text" id="edit-ongeval-items-andere--2" name="ongeval_items_andere" value="" size="32" maxlength="128">	
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group col-md-4">
+ 					<input type="checkbox" id="edit-ladingverlies" name="ladingverlies" value="1" class="form-checkbox hide_next">  <label class="option" for="edit-ladingverlies">ladingverlies </label>
+				</div>
+			<div class="col-md-8"  style="display:inherit">
+ 				<input placeholder="Omschrijving" type="text" id="edit-ladingverlies-omschrijving" name="ladingverlies_omschrijving" value="" size="32" maxlength="128" class="form-text">
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-md-4">
+ 				<input type="checkbox" id="edit-bodemverontreiniging" name="bodemverontreiniging" value="1" class="form-checkbox hide_next">  <label class="option" for="edit-bodemverontreiniging">bodemverontreiniging </label>
+			</div>
+			<div class="col-md-8" style="display:inherit">
+ 				<input placeholder="Omschrijving" type="text" id="edit-bodemverontreiniging-omschrijving" name="bodemverontreiniging_omschrijving" value="" size="32" maxlength="128" class="form-text">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 form-group">
+ 				<input type="checkbox" id="edit-andere" name="andere" value="1" class="form-checkbox hide_next">  <label class="option" for="edit-andere">andere </label>
+			</div>
+			<div class="col-md-8 form-group" style="display:inherit">
+ 				<input placeholder="Omschrijving" type="text" id="edit-andere-omschrijving" name="andere_omschrijving" value="" size="32" maxlength="128" class="form-text">
+			</div>
+		</div>
+	</div>
+	<div class="content" id="panel5a" data-options="scroll_to_content: false" ng-show="panels.panel5a">	
+		<h4>Oproep aan</h4>
+			<div class="row">
+				<div class="checkbox col-md-4">
+					<label class="option" for="edit-regie">
+						<input type="checkbox" id="edit-regie" name="Regie" value="1" class="form-checkbox hide_next">	Regie
+					 </label>						
+				</div>
+				<div class="col-md-2">
+					<div class="form-group">
+				 		<input placeholder="Uur" type="text" id="edit-uur-regie" name="uur_regie" value="" size="6" maxlength="128" class="form-control">
+					</div>
+				</div>
+				<div class="col-md-5">
+					<div class="checkbox">
+						<label class="option" for="edit-regie-opties-na-oproep">
+							<input type="checkbox" id="edit-regie-opties-na-oproep" name="regie_opties[Na oproep]" value="Na oproep" class="form-checkbox jquery-once-1-processed"> Na oproep 
+						</label>
+					</div>
+					<div class="checkbox">
+						<label class="option" for="edit-regie-opties-na-vaststellingen">
+							<input type="checkbox" id="edit-regie-opties-na-vaststellingen" name="regie_opties[na vaststellingen]" value="na vaststellingen" class="form-checkbox jquery-once-1-processed">  
+							Na vaststellingen 
+						</label>						
+					</div>
+				</div>					
+			</div>
+			<div class="row">
+				<div class="checkbox col-md-4">
+					<label class="option" for="edit-regie">
+						<input type="checkbox" id="edit-regie" name="Regie" value="1" class="form-checkbox hide_next">  Aannemer
+					</label>						
+				</div>
+				<div class="col-md-2">
+					<div>
+				 		<input placeholder="Uur" type="text" id="edit-uur-regie" name="uur_regie" value="" size="6" maxlength="128" class="form-control">
+					</div>
+				</div>
+				<div class="col-md-5">
+					<input type="text" id="edit-regie-opties-na-oproep" name="aannemer" placeholder="Aannemer" class="form-control">
+				</div>					
+			</div>
+			<div class="row">
+				<div class="checkbox col-md-4">
+					<label class="option" for="edit-regie"><input type="checkbox" id="edit-regie" name="Regie" value="1" class="form-checkbox hide_next">Signalisatie </label>						
+				</div>
+				<div class="col-md-2">
+					<div class="form-group">
+				 		<input placeholder="Uur" type="text" id="edit-uur-regie" name="uur_regie" value="" size="6" maxlength="128" class="form-control">
+					</div>
+				</div>
+				<div class="col-md-5">
+					<div class="checkbox">
+						<label class="option" for="edit-regie-opties-na-oproep">
+						 	<input type="checkbox" id="edit-regie-opties-na-oproep" name="regie_opties[Na oproep]" value="Na oproep" class="form-checkbox jquery-once-1-processed">Bots. Bestek 
+						</label>
+					</div>
+					<div class="checkbox">
+						<label class="option" for="edit-regie-opties-na-vaststellingen"><input type="checkbox" id="edit-regie-opties-na-vaststellingen" name="regie_opties[na vaststellingen]" value="na vaststellingen" class="form-checkbox jquery-once-1-processed">Aannemer </label>						
+					</div>
+				</div>
+			</div>		
+		<div class="row">
+			<div class="col-md-4 checkbox">
+				<label class="option" for="edit-bodemdeskundige"><input type="checkbox" id="edit-bodemdeskundige" name="bodemdeskundige" value="1" class="form-checkbox hide_next">Bodemdeskundige</label>						
+			</div>
+			<div class="col-md-2">
+				<input placeholder="Uur" type="text" id="edit-uur-regie" name="uur_regie" value="" size="6" maxlength="128" class="form-text">
+			</div>
+			<div class="col-md-5">
+				<input type="text" id="edit-regie-opties-na-oproep" name="bodemdeskundige" placeholder="Bodemdeskundige" class="">
+			</div>			
+		</div>
+		<div >
+			<div class="checkbox">
+				<label class="option" for="edit-oproep-aan-overige2-politie">
+					<input type="checkbox" id="edit-oproep-aan-overige2-politie" name="oproep_aan_overige2[Politie]" value="Politie" class="form-checkbox jquery-once-1-processed">  
+					Politie 
+				</label>							
+			</div>
+			<div class="checkbox">
+				<label class="option" for="edit-oproep-aan-overige2-brandweer">
+					<input type="checkbox" id="edit-oproep-aan-overige2-brandweer" name="oproep_aan_overige2[Brandweer]" value="Brandweer" class="form-checkbox jquery-once-1-processed">  
+					Brandweer 
+				</label>							
+			</div>
+			<div class="checkbox">
+				<label class="option" for="edit-oproep-aan-overige2-civiele-beschermling">
+					<input type="checkbox" id="edit-oproep-aan-overige2-civiele-beschermling" name="oproep_aan_overige2[Civiele Beschermling]" value="Civiele Beschermling" class="form-checkbox jquery-once-1-processed">  
+					Civiele Beschermling 
+				</label>							
+			</div>
+			<div class="checkbox">
+				<label class="option" for="edit-oproep-aan-overige2-fasttakeldienst">
+					<input type="checkbox" id="edit-oproep-aan-overige2-fasttakeldienst" name="oproep_aan_overige2[FAST/Takeldienst]" value="FAST/Takeldienst" class="form-checkbox jquery-once-1-processed"> 
+					FAST/Takeldienst
+				</label>							
+			</div>
+		</div>
+		<h4>Kennisgave aan</h4>
+		<div id="edit-kennisgave-aan" class="form-checkboxes">
+			<div class="checkbox">
+				<label class="option" for="edit-kennisgave-aan-vvc">
+					<input type="checkbox" id="edit-kennisgave-aan-vvc" name="kennisgave_aan[VVC]" value="VVC" class="form-checkbox jquery-once-1-processed">  
+					VVC 
+				</label>
+			</div>
+			<div class="checkbox">
+				<label class="option" for="edit-kennisgave-aan-wachtdienst">
+					<input type="checkbox" id="edit-kennisgave-aan-wachtdienst" name="kennisgave_aan[Wachtdienst]" value="Wachtdienst" class="form-checkbox jquery-once-1-processed">  
+					Wachtdienst 
+				</label>							
+			</div>
+			<div class="checkbox">
+				<label class="option" for="edit-kennisgave-aan-politie">
+					<input type="checkbox" id="edit-kennisgave-aan-politie" name="kennisgave_aan[Politie]" value="Politie" class="form-checkbox jquery-once-1-processed">  
+					Politie 
+				</label>							
+			</div>
+			<div class="checkbox">
+				<label class="option" for="edit-kennisgave-aan-andere">
+					<input type="checkbox" id="edit-kennisgave-aan-andere" name="kennisgave_aan[Andere]" value="Andere" class="form-checkbox jquery-once-1-processed">  
+					Andere 
+				</label>							
+			</div>
+		</div>
+	</div>
+	<div class="content" id="panel6a" data-options="scroll_to_content: false" ng-show="panels.panel6a">							
+		<div class="row"> 
+			<div class="col-md-5 form-group">
+				<label style="margin-top: 17px">Regie ter plaatse:</label>
+			</div>
+			<div class="col-md-3 form-group">
+				<label for="edit-regie-van-uur">Van </label>
+				<input placeholder="Uur" type="time" id="edit-regie-van-uur" name="regie_van_uur" value="" size="6" maxlength="128" class="form-control">
+			</div>
+			<div class="col-md-3 form-group">
+				<label for="edit-regie-tot-uur">Tot </label>
+				<input placeholder="Uur" type="time" id="edit-regie-tot-uur" name="regie_tot_uur" value="" size="6" maxlength="128" class="form-control">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-5">&nbsp;</div>
+			<div class="col-md-7 form-group">
+		 		<label for="edit-regie-arbeider">R. arbeiders </label>
+		 		<input placeholder="R. arbeiders" type="text" id="edit-regie-arbeider" name="regie_arbeider" value="" size="30" maxlength="128" class="form-control">
+			</div>
+		</div>
+		<div class="row"> 
+			<div class="col-md-5 form-group">
+				<label style="margin-top: 17px">Aannemer ter plaatse:</label>
+			</div>
+			<div class="col-md-3 form-group">
+				<label for="edit-regie-van-uur">Van </label>
+				<input placeholder="Uur" type="time" id="edit-regie-van-uur" name="regie_van_uur" value="" size="6" maxlength="128" class="form-control">
+			</div>
+			<div class="col-md-3 form-group">
+				<label for="edit-regie-tot-uur">Tot </label>
+				<input placeholder="Uur" type="time" id="edit-regie-tot-uur" name="regie_tot_uur" value="" size="6" maxlength="128" class="form-control">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-5">&nbsp;</div>
+			<div class="col-md-7 form-group">
+		 		<label for="edit-regie-arbeider">R. toezichter</label>
+		 		<input placeholder="R. toezichter" type="text" id="edit-regie-arbeider" name="regie_arbeider" value="" size="30" maxlength="128" class="form-control">
+			</div>
+		</div>
+		<div class="row"> 
+			<div class="col-md-5 form-group">
+				<label style="margin-top: 17px">Signalisatie ter plaatse:</label>
+			</div>
+			<div class="col-md-3 form-group">
+				<label for="edit-regie-van-uur">Van </label>
+				<input placeholder="Uur" type="time" id="edit-regie-van-uur" name="regie_van_uur" value="" size="6" maxlength="128" class="form-control">
+			</div>
+			<div class="col-md-3 form-group">
+				<label for="edit-regie-tot-uur">Tot </label>
+				<input placeholder="Uur" type="time" id="edit-regie-tot-uur" name="regie_tot_uur" value="" size="6" maxlength="128" class="form-control">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-5">&nbsp;</div>
+			<div class="col-md-7 form-group">
+		 		<label for="edit-regie-arbeider">Aantal Botsers </label>
+		 		<input placeholder="Aantal Botsers" type="text" id="edit-regie-arbeider" name="regie_arbeider" value="" size="30" maxlength="128" class="form-control">
+			</div>
+		</div>
+		<div class="row"> 
+			<div class="col-md-5 form-group">
+				<label style="margin-top: 17px">Deskundige ter plaatse:</label>
+			</div>
+			<div class="col-md-3 form-group">
+				<label for="edit-regie-van-uur">Van </label>
+				<input placeholder="Uur" type="time" id="edit-regie-van-uur" name="regie_van_uur" value="" size="6" maxlength="128" class="form-control">
+			</div>
+			<div class="col-md-3 form-group">
+				<label for="edit-regie-tot-uur">Tot </label>
+				<input placeholder="Uur" type="time" id="edit-regie-tot-uur" name="regie_tot_uur" value="" size="6" maxlength="128" class="form-control">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-5">&nbsp;</div>
+			<div class="col-md-7 form-group">
+				<label for="edit-regie-arbeider">Deskundige </label>
+				<input placeholder="Deskundige" type="text" id="edit-regie-arbeider" name="regie_arbeider" value="" size="30" maxlength="128" class="form-control">
+			</div>
+		</div>
+		<div class="form-item form-type-checkboxes form-item-ondernomen-actie">
+			<label for="edit-ondernomen-actie">Ondernomen actie </label>
+			<div id="edit-ondernomen-actie" class="form-checkboxes">
+				<div class="form-group">
+					<input type="checkbox" id="edit-ondernomen-actie-afgraving" name="ondernomen_actie[Afgraving]" value="Afgraving" class="form-checkbox jquery-once-1-processed">  
+					<label class="option" for="edit-ondernomen-actie-afgraving">Afgraving </label>						
+				</div>
+				<div class="form-group">
+					<input type="checkbox" id="edit-ondernomen-actie-ontstoppen-riolering" name="ondernomen_actie[Ontstoppen riolering]" value="Ontstoppen riolering" class="form-checkbox jquery-once-1-processed">  
+					<label class="option" for="edit-ondernomen-actie-ontstoppen-riolering">Ontstoppen riolering </label>						
+				</div>
+				<div class="form-group">
+					<input type="checkbox" id="edit-ondernomen-actie-reinigen-wegdek" name="ondernomen_actie[Reinigen wegdek]" value="Reinigen wegdek" class="form-checkbox jquery-once-1-processed">  
+					<label class="option" for="edit-ondernomen-actie-reinigen-wegdek">Reinigen wegdek </label>						
+				</div>
+				<div class="form-group">
+					<input type="checkbox" id="edit-ondernomen-actie-verwijderen-aanpassen-stootbanden" name="ondernomen_actie[Verwijderen / Aanpassen stootbanden]" value="Verwijderen / Aanpassen stootbanden" class="form-checkbox jquery-once-1-processed"> 
+					<label class="option" for="edit-ondernomen-actie-verwijderen-aanpassen-stootbanden">Verwijderen / Aanpassen stootbanden </label>						
+				</div>
+				<div class="form-group">
+					<input type="checkbox" id="edit-ondernomen-actie-vullen-put" name="ondernomen_actie[Vullen put]" value="Vullen put" class="form-checkbox jquery-once-1-processed">  
+					<label class="option" for="edit-ondernomen-actie-vullen-put">Vullen put </label>						
+				</div>
+				<div class="form-group">
+					<input type="checkbox" id="edit-ondernomen-actie-andere" name="ondernomen_actie[Andere]" value="Andere" class="form-checkbox jquery-once-1-processed">  
+					<label class="option" for="edit-ondernomen-actie-andere">Andere </label>						
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="edit-actie-opmerking">Opmerking </label>
+			<div class="form-textarea-wrapper resizable textarea-processed resizable-textarea"><textarea placeholder="Opmerking" id="edit-actie-opmerking" name="actie_opmerking" cols="60" rows="3" class="form-control"></textarea><div class="grippie"></div></div>
+		</div>
+	</div>
+	<div class="content" id="panel7a" role="tabpanel" class="tab-pane"  ng-show="panels.panel7a">	
+		<div class="form-item form-type-textarea form-item-bijkomende-vaststelling">
+			<label for="edit-bijkomende-vaststelling">Bijkomende Details Vaststellingen - Acties - Uitvoering - ... </label>
+		 	<div class="form-group">
+		 		<textarea placeholder="Bijkomende Details Vaststellingen - Acties - Uitvoering - ..." id="edit-bijkomende-vaststelling" name="bijkomende_vaststelling" cols="60" rows="15" class="form-control"></textarea>
+		 	</div>
+		</div>
+	</div>
+	<div class="content" id="panel8a" data-options="scroll_to_content: false" ng-show="panels.panel8a">	
+		<div id="uploadenContainer">
+			<p style="font-size: smaller; text-align: center; width: 80%">Maxmimum grote: 100MB</p>
+			<form id="upload_file" style="display:none;" action="upload">
+				<input type="file" id="uploadFile" name="filename" style="display:none;" multiple/>
+			</form>
+			<div id=image style="" class=dropzone>
+				<div style="padding: 10px 10px; font-size: 15px; line-height: 150%;">Sleep een of meerdere <strong>bestanden</strong> naar hier of <strong>Klik</strong> hier om een of meerdere bestanden te uploaden.</div>
+			</div>
+			<div class="progress progress-striped active" style="width: 80%; margin-top: 10px; display: none;">
+			  <div class="progress-bar"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+			    <span class="sr-only">45% Complete</span>
+			  </div>
+			</div>
+			<strong>Geuploade bestanden:</strong>
+			<input type=hidden name=filenames id=filenames />
+			<ul id=uploadedFiles>
+			</ul>
+		</div>
+	</div>
+	<div class="content" id="panel9a" data-options="scroll_to_content: false" ng-show="panels.panel9a">							
+		<div class="row">							
+			<div id="edit-afmelding-datum-uur" class="small-4 medium-4 large-4 columns">
+				<label for="edit-afmelding-datum-uur" style="margin-top:17px">Datum &amp; uur afmelding </label>
+			</div>
+			<div class="col-md-4 form-group">
+				<label for="edit-afmelding-datum-uur-datepicker-popup-0">Date </label>
+				<input placeholder="datum" type="date" id="edit-afmelding-datum-uur-datepicker-popup-0" name="afmelding_datum_uur[date]" value="" size="20" maxlength="30" class="form-control">								
+			</div>
+			<div class="col-md-4 form-group">
+				<label for="edit-afmelding-datum-uur-timeEntry-popup-1">Time </label>
+				<input placeholder="datum" type="time" id="edit-afmelding-datum-uur-timeEntry-popup-1" name="afmelding_datum_uur[time]" value="" size="15" maxlength="10" class="form-control">								
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="edit-opmerking">Opmerking </label>
+			<div class="form-textarea-wrapper resizable textarea-processed resizable-textarea"><textarea placeholder="Opmerking" id="edit-opmerking" name="opmerking" cols="60" rows="3" class="form-control"></textarea><div class="grippie"></div></div>
+		</div>
+	</div>
+</div>
+</div>

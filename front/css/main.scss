@@ -1,0 +1,42 @@
+// The main css file
+body {
+}
+
+h1 {
+  text-align: center;
+}
+
+#user-img {
+  border-radius: 10px;
+  margin-right: 10px;
+  max-height: 32px;
+}
+
+.holder {
+  padding: 0 15px 0 15px;
+}
+
+ul {
+  padding:  0 0;
+}
+
+ul li {
+  list-style:none;
+}
+
+.tabs dd {
+  display: block;
+  background: #efefef;
+  color: #222222;
+  padding: 0.6rem 0.8rem;
+  text-decoration: none;
+  line-height: inherit;
+  cursor:pointer;
+}
+.tabs dd:hover {
+  background: #dedede;
+}
+
+.tabs dd.active {
+  background: #ccc;
+}
